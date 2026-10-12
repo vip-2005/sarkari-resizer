@@ -1,0 +1,277 @@
+<!DOCTYPE html>
+<html lang="hi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>सरकारी एग्ज़ाम फोटो & सिग्नेचर रिसाइज़र (UPSSSC, SSC, Railway & Custom KB)</title>
+  <meta name="description" content="सरकारी नौकरी फॉर्म के लिए फोटो, सिग्नेचर और डॉक्यूमेंट्स को मनचाहे KB साइज़ और पिक्सल में तुरंत 1-क्लिक में रिसाइज़ और कंप्रेस करें।">
+  <meta name="keywords" content="upsssc photo resizer, ssc signature size converter, photo size 20 to 50 kb, custom photo resizer, image compressor kb">
+  
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  
+  <style>
+    body { font-family: 'Hind', 'Inter', sans-serif; }
+  </style>
+</head>
+<body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
+
+  <!-- Header -->
+  <header class="bg-white border-b border-slate-200 py-4 px-6 shadow-sm">
+    <div class="max-w-4xl mx-auto flex items-center justify-between">
+      <div class="flex items-center space-x-3">
+        <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-md">
+          📐
+        </div>
+        <div>
+          <h1 class="text-xl font-bold text-slate-800 leading-tight">Sarkari Resizer</h1>
+          <p class="text-xs text-slate-500">फोटो, सिग्नेचर & कस्टम KB रिसाइज़र</p>
+        </div>
+      </div>
+      <span class="text-xs px-2.5 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200">100% Free & Fast</span>
+    </div>
+  </header>
+
+  <!-- Main Container -->
+  <main class="max-w-3xl w-full mx-auto p-4 sm:p-6 my-auto">
+    
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-6 sm:p-8 space-y-6">
+      
+      <!-- Preset & Custom Selector -->
+      <div>
+        <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2">मोड चुनें</label>
+        <div class="grid grid-cols-2 sm:grid-cols-5 gap-2">
+          <button type="button" onclick="setPreset('upsssc_photo')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-indigo-600 bg-indigo-50 text-indigo-700">UPSSSC फोटो</button>
+          <button type="button" onclick="setPreset('upsssc_sign')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50">UPSSSC साइन</button>
+          <button type="button" onclick="setPreset('ssc_photo')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50">SSC फोटो</button>
+          <button type="button" onclick="setPreset('ssc_sign')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50">SSC साइन</button>
+          <button type="button" onclick="setPreset('custom')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 col-span-2 sm:col-span-1 bg-amber-50/50">⚙️ कस्टम साइज़</button>
+        </div>
+      </div>
+
+      <!-- Custom Settings Box (Default Hidden) -->
+      <div id="custom-inputs-panel" class="hidden p-4 rounded-2xl bg-amber-50/60 border border-amber-200 space-y-4">
+        <div class="flex items-center justify-between">
+          <span class="text-xs font-bold text-amber-900 uppercase tracking-wider">कस्टम सेटिंग्स (अपने अनुसार साइज़ सेट करें)</span>
+          <span class="text-[11px] text-amber-700">KB या पिक्सल सेट करें</span>
+        </div>
+        
+        <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
+          <div>
+            <label class="block text-[11px] font-medium text-slate-600 mb-1">न्यूनतम साइज़ (Min KB)</label>
+            <input type="number" id="custom-min-kb" value="20" min="5" max="2000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-[11px] font-medium text-slate-600 mb-1">अधिकतम साइज़ (Max KB)</label>
+            <input type="number" id="custom-max-kb" value="50" min="10" max="5000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-[11px] font-medium text-slate-600 mb-1">अधिकतम चौड़ाई (Width px)</label>
+            <input type="number" id="custom-width" value="600" min="50" max="4000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+          </div>
+          <div>
+            <label class="block text-[11px] font-medium text-slate-600 mb-1">अधिकतम ऊँचाई (Height px)</label>
+            <input type="number" id="custom-height" value="800" min="50" max="4000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+          </div>
+        </div>
+      </div>
+
+      <!-- File Upload Box -->
+      <div id="drop-area" onclick="document.getElementById('file-input').click()" class="border-2 border-dashed border-slate-300 hover:border-indigo-500 rounded-2xl p-6 text-center cursor-pointer transition bg-slate-50/50 hover:bg-indigo-50/20">
+        <input type="file" id="file-input" accept="image/jpeg,image/png,image/jpg" class="hidden" onchange="handleFile(event)">
+        <div class="space-y-2">
+          <div class="w-12 h-12 mx-auto rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl">📁</div>
+          <p class="text-sm font-semibold text-slate-700">फोटो या सिग्नेचर चुनें (या यहाँ ड्रैग करें)</p>
+          <p class="text-xs text-slate-400">JPG, JPEG या PNG फ़ाइल चुनें</p>
+        </div>
+      </div>
+
+      <!-- Live Preview & Result Section -->
+      <div id="preview-card" class="hidden border border-slate-200 rounded-2xl p-4 bg-slate-50 space-y-4">
+        <div class="flex flex-col sm:flex-row items-center gap-6">
+          <img id="image-preview" src="#" alt="Preview" class="max-h-48 max-w-[180px] rounded-lg shadow-sm border border-slate-200 object-contain bg-white">
+          
+          <div class="flex-grow space-y-2 text-center sm:text-left">
+            <div>
+              <span class="text-xs text-slate-400">मूल साइज़ (Original):</span>
+              <p class="text-sm font-semibold text-slate-700" id="original-size">0 KB</p>
+            </div>
+            <div>
+              <span class="text-xs text-slate-400">नया साइज़ (Processed):</span>
+              <p class="text-lg font-bold text-emerald-600" id="processed-size">0 KB</p>
+            </div>
+            <p class="text-xs text-slate-500" id="resolution-info"></p>
+          </div>
+        </div>
+
+        <button id="download-btn" onclick="downloadImage()" class="w-full py-3 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-semibold rounded-xl shadow-lg shadow-indigo-600/30 transition flex items-center justify-center gap-2">
+          <span>डाउनलोड करें (Download JPG)</span>
+        </button>
+      </div>
+
+      <!-- Adsterra Banner Slot (Native / Banner) -->
+      <div class="p-3 bg-slate-100 rounded-2xl text-center border border-slate-200">
+        <span class="text-[10px] text-slate-400 uppercase tracking-widest block mb-2">विज्ञापन / Sponsored</span>
+        
+        <!-- Adsterra Native Banner Code -->
+        <script async="async" data-cfasync="false" src="https://bauval.org/21/8793335f8cc732e008698963cc7cbf46"></script>
+        <div id="container-8793335f8cc732e008698963cc7cbf46"></div>
+      </div>
+
+    </div>
+  </main>
+
+  <!-- Footer -->
+  <footer class="bg-white border-t border-slate-200 py-4 text-center text-xs text-slate-500">
+    <p>© 2026 Sarkari Resizer • सुरक्षित और तेज़ रिसाइज़िंग टूल</p>
+  </footer>
+
+  <!-- Script Logic -->
+  <script>
+    let currentConfig = { targetMinKB: 20, targetMaxKB: 50, maxWidth: 350, maxHeight: 450, prefix: 'photo', isCustom: false };
+    let processedBlob = null;
+    let selectedFile = null;
+
+    function setPreset(type) {
+      document.querySelectorAll('.preset-btn').forEach(btn => {
+        btn.classList.remove('border-indigo-600', 'bg-indigo-50', 'text-indigo-700');
+        btn.classList.add('border-slate-200', 'text-slate-600');
+      });
+      event.target.classList.remove('border-slate-200', 'text-slate-600');
+      event.target.classList.add('border-indigo-600', 'bg-indigo-50', 'text-indigo-700');
+
+      const customPanel = document.getElementById('custom-inputs-panel');
+
+      if (type === 'custom') {
+        customPanel.classList.remove('hidden');
+        currentConfig.isCustom = true;
+        applyCustomInputs();
+        return;
+      }
+
+      customPanel.classList.add('hidden');
+      currentConfig.isCustom = false;
+
+      if (type === 'upsssc_photo' || type === 'ssc_photo') {
+        currentConfig = { targetMinKB: 20, targetMaxKB: 50, maxWidth: 350, maxHeight: 450, prefix: 'photo', isCustom: false };
+      } else {
+        currentConfig = { targetMinKB: 10, targetMaxKB: 20, maxWidth: 350, maxHeight: 150, prefix: 'signature', isCustom: false };
+      }
+
+      if (selectedFile) {
+        processImage(selectedFile);
+      }
+    }
+
+    function applyCustomInputs() {
+      const minKb = parseFloat(document.getElementById('custom-min-kb').value) || 10;
+      const maxKb = parseFloat(document.getElementById('custom-max-kb').value) || 50;
+      const width = parseInt(document.getElementById('custom-width').value) || 800;
+      const height = parseInt(document.getElementById('custom-height').value) || 800;
+
+      currentConfig = {
+        targetMinKB: Math.min(minKb, maxKb),
+        targetMaxKB: Math.max(minKb, maxKb),
+        maxWidth: width,
+        maxHeight: height,
+        prefix: 'custom_image',
+        isCustom: true
+      };
+
+      if (selectedFile) {
+        processImage(selectedFile);
+      }
+    }
+
+    function handleFile(event) {
+      const file = event.target.files[0];
+      if (file) {
+        selectedFile = file;
+        document.getElementById('original-size').innerText = (file.size / 1024).toFixed(1) + ' KB';
+        processImage(file);
+      }
+    }
+
+    function processImage(file) {
+      const reader = new FileReader();
+      reader.onload = function(e) {
+        const img = new Image();
+        img.onload = function() {
+          const canvas = document.createElement('canvas');
+          let width = img.width;
+          let height = img.height;
+
+          // Aspect ratio resizing
+          if (width > currentConfig.maxWidth || height > currentConfig.maxHeight) {
+            const ratio = Math.min(currentConfig.maxWidth / width, currentConfig.maxHeight / height);
+            width = Math.round(width * ratio);
+            height = Math.round(height * ratio);
+          }
+
+          canvas.width = width;
+          canvas.height = height;
+          const ctx = canvas.getContext('2d');
+          
+          // White background for transparent PNGs
+          ctx.fillStyle = '#FFFFFF';
+          ctx.fillRect(0, 0, width, height);
+          ctx.drawImage(img, 0, 0, width, height);
+
+          // Binary search compression for target KB
+          let minQuality = 0.05, maxQuality = 0.98, bestBlob = null, bestSize = 0;
+
+          function testCompression(quality, iteration) {
+            canvas.toBlob(blob => {
+              const sizeKB = blob.size / 1024;
+              bestBlob = blob;
+              bestSize = sizeKB;
+
+              if (iteration < 7) {
+                if (sizeKB > currentConfig.targetMaxKB) {
+                  maxQuality = quality;
+                  testCompression((minQuality + maxQuality) / 2, iteration + 1);
+                } else if (sizeKB < currentConfig.targetMinKB) {
+                  minQuality = quality;
+                  testCompression((minQuality + maxQuality) / 2, iteration + 1);
+                } else {
+                  finalize(blob, sizeKB, width, height);
+                }
+              } else {
+                finalize(bestBlob, bestSize, width, height);
+              }
+            }, 'image/jpeg', quality);
+          }
+
+          testCompression(0.8, 1);
+        };
+        img.src = e.target.result;
+      };
+      reader.readAsDataURL(file);
+    }
+
+    function finalize(blob, sizeKB, width, height) {
+      processedBlob = blob;
+      const previewImg = document.getElementById('image-preview');
+      previewImg.src = URL.createObjectURL(blob);
+      document.getElementById('processed-size').innerText = sizeKB.toFixed(1) + ' KB';
+      document.getElementById('resolution-info').innerText = `${width} × ${height} px (JPEG)`;
+      document.getElementById('preview-card').classList.remove('hidden');
+    }
+
+    function downloadImage() {
+      if (!processedBlob) return;
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(processedBlob);
+      a.download = `${currentConfig.prefix}_${Date.now()}.jpg`;
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+  </script>
+
+  <!-- Adsterra Social Bar Code -->
+  <script data-cfasync="false" src="https://bauval.org/14/b2432908851345e6d312c122e337b0e8"></script>
+</body>
+</html>
