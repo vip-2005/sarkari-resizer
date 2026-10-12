@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
   <!-- Google Search Console Verification -->
-  <meta name="google-site-verification" content="googleedcd5a8c03ac22c9" />
+  <meta name="google-site-verification" content="vIp44YsxdiHERoBnhZA-9uq9K0uO_e0RTAs7waLMLrg" />
   
   <title>सरकारी एग्ज़ाम फोटो & सिग्नेचर रिसाइज़र (UPSSSC, SSC, Railway & Custom KB)</title>
   <meta name="description" content="सरकारी नौकरी फॉर्म (UPSSSC, SSC, Railway) के लिए फोटो (20-50 KB) और सिग्नेचर (10-20 KB) तुरंत ऑनलाइन 1-क्लिक में रिसाइज़ और कंप्रेस करें।">
@@ -115,7 +115,7 @@
         </button>
       </div>
 
-      <!-- Adsterra Banner Slot (Native Banner) -->
+      <!-- Adsterra Banner Slot -->
       <div class="p-3 bg-slate-100 rounded-2xl text-center border border-slate-200">
         <span class="text-[10px] text-slate-400 uppercase tracking-widest block mb-2">विज्ञापन / Sponsored</span>
         <script async="async" data-cfasync="false" src="https://bauval.org/21/8793335f8cc732e008698963cc7cbf46"></script>
@@ -218,7 +218,6 @@
           let width = img.width;
           let height = img.height;
 
-          // Aspect ratio resizing
           if (width > currentConfig.maxWidth || height > currentConfig.maxHeight) {
             const ratio = Math.min(currentConfig.maxWidth / width, currentConfig.maxHeight / height);
             width = Math.round(width * ratio);
@@ -229,12 +228,10 @@
           canvas.height = height;
           const ctx = canvas.getContext('2d');
           
-          // White background for transparent PNGs
           ctx.fillStyle = '#FFFFFF';
           ctx.fillRect(0, 0, width, height);
           ctx.drawImage(img, 0, 0, width, height);
 
-          // Binary search compression for target KB
           let minQuality = 0.05, maxQuality = 0.98, bestBlob = null, bestSize = 0;
 
           function testCompression(quality, iteration) {
@@ -286,7 +283,7 @@
     }
   </script>
 
-  <!-- Adsterra Social Bar Code (Active) -->
+  <!-- Adsterra Social Bar Code -->
   <script data-cfasync="false" src="https://bauval.org/14/b2432908851345e6d312c122e337b0e8"></script>
 </body>
 </html>
