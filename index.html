@@ -23,14 +23,11 @@
   }
   </script>
 
-  <!-- Tailwind CSS & Fonts -->
+  <!-- Tailwind CSS -->
   <script src="https://cdn.tailwindcss.com"></script>
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Hind:wght@400;500;600;700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
-  
   <style>
-    body { font-family: 'Hind', 'Inter', sans-serif; }
+    body { font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif; }
+    .smooth-card { will-change: transform, opacity; }
   </style>
 </head>
 <body class="bg-slate-50 text-slate-800 min-h-screen flex flex-col justify-between">
@@ -39,62 +36,60 @@
   <header class="bg-white border-b border-slate-200 sticky top-0 z-30 shadow-xs">
     <div class="max-w-4xl mx-auto px-4 sm:px-6 py-3.5 flex items-center justify-between">
       <div class="flex items-center space-x-3">
-        <div class="w-10 h-10 rounded-xl bg-gradient-to-tr from-indigo-600 to-violet-600 text-white flex items-center justify-center font-bold text-lg shadow-md shadow-indigo-600/20">
+        <div class="w-10 h-10 rounded-xl bg-indigo-600 text-white flex items-center justify-center font-bold text-lg shadow-md">
           📐
         </div>
         <div>
           <div class="flex items-center gap-2">
             <h1 class="text-xl font-bold text-slate-800 leading-tight">Sarkari Resizer</h1>
-            <span class="text-[10px] px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-semibold border border-indigo-200">PRO v2.0</span>
+            <span class="text-[10px] px-2 py-0.5 rounded-md bg-indigo-50 text-indigo-700 font-semibold border border-indigo-200">PRO</span>
           </div>
-          <p class="text-xs text-slate-500">फोटो, सिग्नेचर रिसाइज़र & नाम-तारीख (DOP) जनरेटर</p>
+          <p class="text-xs text-slate-500">फोटो, सिग्नेचर रिसाइज़र & DOP जनरेटर</p>
         </div>
       </div>
-      <span class="hidden sm:inline-flex text-xs px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200 items-center gap-1">
-        <span class="w-2 h-2 rounded-full bg-emerald-500"></span> 100% सुरक्षित & मुफ़्त
-      </span>
+      <span class="text-xs px-3 py-1 rounded-full bg-emerald-50 text-emerald-700 font-semibold border border-emerald-200">100% मुफ़्त & सुपरफास्ट</span>
     </div>
   </header>
 
   <!-- Main Container -->
   <main class="max-w-3xl w-full mx-auto p-4 sm:p-6 my-2">
     
-    <div class="bg-white rounded-3xl border border-slate-200/80 shadow-sm p-5 sm:p-8 space-y-6">
+    <div class="bg-white rounded-3xl border border-slate-200 shadow-sm p-5 sm:p-8 space-y-6">
       
       <!-- Preset Selector Grid -->
       <div>
         <label class="block text-xs font-bold text-slate-500 uppercase tracking-wider mb-2.5">परीक्षा अनुसार मोड चुनें</label>
         <div class="grid grid-cols-2 sm:grid-cols-3 md:grid-cols-6 gap-2">
-          <button type="button" onclick="setPreset('upsssc_photo')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-indigo-600 bg-indigo-50 text-indigo-700 transition">UPSSSC फोटो<br><span class="text-[10px] font-normal opacity-80">(20-50 KB)</span></button>
-          <button type="button" onclick="setPreset('upsssc_sign')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 transition">UPSSSC साइन<br><span class="text-[10px] font-normal opacity-80">(10-20 KB)</span></button>
-          <button type="button" onclick="setPreset('rrb_photo')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 transition">RRB NTPC फोटो<br><span class="text-[10px] font-normal opacity-80">(30-70 KB)</span></button>
-          <button type="button" onclick="setPreset('rrb_sign')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 transition">RRB NTPC साइन<br><span class="text-[10px] font-normal opacity-80">(10-40 KB)</span></button>
-          <button type="button" onclick="setPreset('ssc_photo')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 transition">SSC फोटो<br><span class="text-[10px] font-normal opacity-80">(20-50 KB)</span></button>
-          <button type="button" onclick="setPreset('custom')" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 col-span-2 sm:col-span-1 bg-amber-50/50 transition">⚙️ कस्टम साइज़<br><span class="text-[10px] font-normal opacity-80">(Custom KB)</span></button>
+          <button type="button" onclick="setPreset('upsssc_photo', this)" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-indigo-600 bg-indigo-50 text-indigo-700">UPSSSC फोटो<br><span class="text-[10px] font-normal opacity-80">(20-50 KB)</span></button>
+          <button type="button" onclick="setPreset('upsssc_sign', this)" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50">UPSSSC साइन<br><span class="text-[10px] font-normal opacity-80">(10-20 KB)</span></button>
+          <button type="button" onclick="setPreset('rrb_photo', this)" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50">RRB NTPC फोटो<br><span class="text-[10px] font-normal opacity-80">(30-70 KB)</span></button>
+          <button type="button" onclick="setPreset('rrb_sign', this)" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50">RRB NTPC साइन<br><span class="text-[10px] font-normal opacity-80">(10-40 KB)</span></button>
+          <button type="button" onclick="setPreset('ssc_photo', this)" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50">SSC फोटो<br><span class="text-[10px] font-normal opacity-80">(20-50 KB)</span></button>
+          <button type="button" onclick="setPreset('custom', this)" class="preset-btn px-2.5 py-2 text-xs font-semibold rounded-xl border border-slate-200 text-slate-600 hover:bg-slate-50 col-span-2 sm:col-span-1 bg-amber-50/50">⚙️ कस्टम<br><span class="text-[10px] font-normal opacity-80">(Custom KB)</span></button>
         </div>
       </div>
 
-      <!-- Feature Toggle: Name & Date on Photo (DOP) -->
-      <div class="border border-slate-200 bg-slate-50/80 rounded-2xl p-4 transition">
-        <div class="flex items-center justify-between cursor-pointer" onclick="toggleDOPBox()">
-          <div class="flex items-center space-x-2.5">
-            <input type="checkbox" id="dop-checkbox" class="w-4 h-4 text-indigo-600 rounded-sm border-slate-300 focus:ring-indigo-500 cursor-pointer" onchange="handleDOPToggle(event)">
+      <!-- Feature: Name & Date on Photo (DOP) -->
+      <div class="border border-slate-200 bg-slate-50/80 rounded-2xl p-4">
+        <div class="flex items-center justify-between">
+          <label class="flex items-center space-x-2.5 cursor-pointer">
+            <input type="checkbox" id="dop-checkbox" class="w-4 h-4 text-indigo-600 rounded border-slate-300 focus:ring-indigo-500 cursor-pointer" onchange="toggleDOPBox()">
             <div>
               <span class="text-xs sm:text-sm font-bold text-slate-800">फोटो पर नाम & तारीख (Name & DOP) जोड़ें</span>
-              <p class="text-[11px] text-slate-500">SSC, पुलिस और अन्य फॉर्म्स के लिए फोटो के नीचे सफेद पट्टी में नाम-तारीख लिखें</p>
+              <p class="text-[11px] text-slate-500">SSC व पुलिस फॉर्म्स के लिए फोटो के नीचे सफेद पट्टी में नाम-तारीख लिखें</p>
             </div>
-          </div>
-          <span class="text-xs font-semibold text-indigo-600 bg-indigo-50 px-2 py-1 rounded-md border border-indigo-100">न्यू फ़ीचर</span>
+          </label>
+          <span class="text-[10px] font-semibold text-indigo-600 bg-indigo-50 px-2 py-0.5 rounded border border-indigo-100">न्यू</span>
         </div>
 
-        <div id="dop-inputs-container" class="hidden mt-4 pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-3">
+        <div id="dop-inputs-container" class="hidden mt-3 pt-3 border-t border-slate-200 grid grid-cols-1 sm:grid-cols-2 gap-3">
           <div>
-            <label class="block text-[11px] font-semibold text-slate-600 mb-1">अभ्यर्थी का पूरा नाम (Candidate Name)</label>
-            <input type="text" id="dop-name" placeholder="उदा. RAHUL SHARMA" oninput="reprocessWithDOP()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs uppercase focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            <label class="block text-[11px] font-semibold text-slate-600 mb-1">पूरा नाम (Candidate Name)</label>
+            <input type="text" id="dop-name" placeholder="उदा. RAHUL SHARMA" oninput="triggerReprocessDebounced()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs uppercase focus:ring-2 focus:ring-indigo-500 focus:outline-none">
           </div>
           <div>
-            <label class="block text-[11px] font-semibold text-slate-600 mb-1">फोटो की तारीख (Date of Photo - DOP)</label>
-            <input type="text" id="dop-date" placeholder="उदा. DOP: 15/10/2026" oninput="reprocessWithDOP()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            <label class="block text-[11px] font-semibold text-slate-600 mb-1">फोटो की तारीख (Date of Photo)</label>
+            <input type="text" id="dop-date" placeholder="उदा. DOP: 17/10/2026" oninput="triggerReprocessDebounced()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none">
           </div>
         </div>
       </div>
@@ -102,26 +97,26 @@
       <!-- Custom Settings Box (Default Hidden) -->
       <div id="custom-inputs-panel" class="hidden p-4 rounded-2xl bg-amber-50/70 border border-amber-200 space-y-3">
         <div class="flex items-center justify-between">
-          <span class="text-xs font-bold text-amber-900 uppercase tracking-wider">कस्टम सेटिंग्स (अपने अनुसार साइज़ सेट करें)</span>
-          <span class="text-[11px] text-amber-700">KB या पिक्सल मैन्युअल बदलें</span>
+          <span class="text-xs font-bold text-amber-900 uppercase tracking-wider">कस्टम सेटिंग्स</span>
+          <span class="text-[11px] text-amber-700">KB या पिक्सल सेट करें</span>
         </div>
         
         <div class="grid grid-cols-2 sm:grid-cols-4 gap-3">
           <div>
-            <label class="block text-[11px] font-medium text-slate-600 mb-1">कम से कम (Min KB)</label>
-            <input type="number" id="custom-min-kb" value="20" min="5" max="2000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            <label class="block text-[11px] font-medium text-slate-600 mb-1">न्यूनतम KB</label>
+            <input type="number" id="custom-min-kb" value="20" min="5" max="2000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none">
           </div>
           <div>
-            <label class="block text-[11px] font-medium text-slate-600 mb-1">अधिकतम (Max KB)</label>
-            <input type="number" id="custom-max-kb" value="50" min="10" max="5000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            <label class="block text-[11px] font-medium text-slate-600 mb-1">अधिकतम KB</label>
+            <input type="number" id="custom-max-kb" value="50" min="10" max="5000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none">
           </div>
           <div>
-            <label class="block text-[11px] font-medium text-slate-600 mb-1">चौड़ाई (Width px)</label>
-            <input type="number" id="custom-width" value="600" min="50" max="4000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            <label class="block text-[11px] font-medium text-slate-600 mb-1">चौड़ाई (px)</label>
+            <input type="number" id="custom-width" value="600" min="50" max="4000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none">
           </div>
           <div>
-            <label class="block text-[11px] font-medium text-slate-600 mb-1">ऊँचाई (Height px)</label>
-            <input type="number" id="custom-height" value="800" min="50" max="4000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-sm focus:ring-2 focus:ring-indigo-500 focus:outline-none">
+            <label class="block text-[11px] font-medium text-slate-600 mb-1">ऊँचाई (px)</label>
+            <input type="number" id="custom-height" value="800" min="50" max="4000" onchange="applyCustomInputs()" class="w-full bg-white border border-slate-300 rounded-lg p-2 text-xs focus:ring-2 focus:ring-indigo-500 focus:outline-none">
           </div>
         </div>
       </div>
@@ -132,25 +127,25 @@
         <div class="space-y-2">
           <div class="w-12 h-12 mx-auto rounded-full bg-indigo-100 text-indigo-600 flex items-center justify-center text-xl">📁</div>
           <p class="text-sm font-semibold text-slate-700">यहाँ क्लिक करके फोटो या सिग्नेचर चुनें</p>
-          <p class="text-xs text-slate-400">JPG, JPEG या PNG फ़ाइल चुनें (मोबाइल से डायरेक्ट अपलोड समर्थित)</p>
+          <p class="text-xs text-slate-400">JPG, JPEG या PNG फ़ाइल चुनें</p>
         </div>
       </div>
 
       <!-- Live Preview & Result Section -->
       <div id="preview-card" class="hidden border border-slate-200 rounded-3xl p-4 sm:p-5 bg-slate-50 space-y-4">
         <div class="flex flex-col sm:flex-row items-center gap-5">
-          <div class="bg-white p-2 rounded-xl shadow-xs border border-slate-200 shrink-0">
+          <div class="bg-white p-2 rounded-xl border border-slate-200 shrink-0">
             <img id="image-preview" src="#" alt="Preview" class="max-h-48 max-w-[170px] rounded-lg object-contain bg-slate-100">
           </div>
           
           <div class="flex-grow space-y-2.5 text-center sm:text-left w-full">
             <div class="grid grid-cols-2 gap-2 bg-white p-3 rounded-xl border border-slate-200/70">
               <div>
-                <span class="text-[11px] text-slate-400 block">मूल साइज़ (Original):</span>
+                <span class="text-[11px] text-slate-400 block">मूल साइज़:</span>
                 <p class="text-sm font-bold text-slate-700" id="original-size">0 KB</p>
               </div>
               <div>
-                <span class="text-[11px] text-slate-400 block">नया साइज़ (Processed):</span>
+                <span class="text-[11px] text-slate-400 block">नया साइज़:</span>
                 <p class="text-base font-bold text-emerald-600" id="processed-size">0 KB</p>
               </div>
             </div>
@@ -158,30 +153,26 @@
           </div>
         </div>
 
-        <button id="download-btn" onclick="downloadImage()" class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 active:scale-95 text-white font-semibold rounded-2xl shadow-lg shadow-indigo-600/25 transition flex items-center justify-center gap-2">
-          <svg class="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-4l-4 4m0 0l-4-4m4 4V4"></path></svg>
+        <button id="download-btn" onclick="downloadImage()" class="w-full py-3.5 bg-indigo-600 hover:bg-indigo-700 active:scale-98 text-white font-semibold rounded-2xl shadow-md transition flex items-center justify-center gap-2">
           <span>डाउनलोड करें (Download JPG)</span>
         </button>
       </div>
 
       <!-- Adsterra Banner Slot (Native Banner) -->
-      <div class="p-3 bg-slate-100/80 rounded-2xl text-center border border-slate-200">
+      <div class="p-3 bg-slate-100 rounded-2xl text-center border border-slate-200">
         <span class="text-[10px] text-slate-400 uppercase tracking-widest block mb-2">विज्ञापन / Sponsored</span>
         <script async="async" data-cfasync="false" src="https://bauval.org/21/8793335f8cc732e008698963cc7cbf46"></script>
         <div id="container-8793335f8cc732e008698963cc7cbf46"></div>
       </div>
 
-      <!-- SEO & Sarkari Exam Rules Section -->
-      <div class="border-t border-slate-200 pt-5 text-slate-600 text-xs sm:text-sm space-y-3">
-        <h2 class="text-base font-bold text-slate-800">सरकारी भर्तियों के लिए आधिकारिक फोटो & सिग्नेचर नियम</h2>
-        <ul class="list-disc pl-5 space-y-1.5 leading-relaxed">
-          <li><strong>RRB NTPC (Railway Recruitment 2026):</strong> पासपोर्ट फोटो का साइज़ 30 KB से 70 KB तथा सिग्नेचर 10 KB से 40 KB के बीच माँगा जाता है। बैकग्राउंड साफ़ या सफ़ेद होना चाहिए।</li>
-          <li><strong>UPSSSC (PET, Lekhpal, VDO):</strong> फोटो 20 KB से 50 KB और सिग्नेचर 10 KB से 20 KB में माँगा जाता है।</li>
-          <li><strong>SSC (CGL, CHSL, GD, MTS):</strong> फोटो 20 KB से 50 KB (3.5 cm × 4.5 cm) तथा सिग्नेचर 10 KB से 20 KB होना अनिवार्य है।</li>
+      <!-- SEO Rules Section -->
+      <div class="border-t border-slate-200 pt-5 text-slate-600 text-xs sm:text-sm space-y-2">
+        <h2 class="text-base font-bold text-slate-800">सरकारी भर्ती फोटो & सिग्नेचर नियम</h2>
+        <ul class="list-disc pl-5 space-y-1 text-slate-500">
+          <li><strong>RRB NTPC:</strong> फोटो 30-70 KB, सिग्नेचर 10-40 KB।</li>
+          <li><strong>UPSSSC (PET/VDO):</strong> फोटो 20-50 KB, सिग्नेचर 10-20 KB।</li>
+          <li><strong>SSC GD / CGL:</strong> फोटो 20-50 KB, सिग्नेचर 10-20 KB।</li>
         </ul>
-        <p class="text-slate-500 text-[11px] pt-1">
-          नोट: यह टूल 100% क्लाइंट-साइड (Browser-based) है। आपकी कोई भी फोटो किसी सर्वर पर स्टोर नहीं होती, अतः आपका डेटा पूर्णतः सुरक्षित और निजी रहता है।
-        </p>
       </div>
 
     </div>
@@ -192,19 +183,20 @@
     <p>© 2026 Sarkari Resizer • Powered by VIP Tech Creations</p>
   </footer>
 
-  <!-- Resizer & Canvas Logic -->
+  <!-- Ultra-Fast Script -->
   <script>
     let currentConfig = { targetMinKB: 20, targetMaxKB: 50, maxWidth: 350, maxHeight: 450, prefix: 'photo', isCustom: false };
     let processedBlob = null;
-    let selectedFile = null;
+    let loadedImage = null;
+    let debounceTimer = null;
 
-    function setPreset(type) {
+    function setPreset(type, btnElement) {
       document.querySelectorAll('.preset-btn').forEach(btn => {
         btn.classList.remove('border-indigo-600', 'bg-indigo-50', 'text-indigo-700');
         btn.classList.add('border-slate-200', 'text-slate-600');
       });
-      event.currentTarget.classList.remove('border-slate-200', 'text-slate-600');
-      event.currentTarget.classList.add('border-indigo-600', 'bg-indigo-50', 'text-indigo-700');
+      btnElement.classList.remove('border-slate-200', 'text-slate-600');
+      btnElement.classList.add('border-indigo-600', 'bg-indigo-50', 'text-indigo-700');
 
       const customPanel = document.getElementById('custom-inputs-panel');
 
@@ -228,9 +220,7 @@
         currentConfig = { targetMinKB: 10, targetMaxKB: 40, maxWidth: 400, maxHeight: 180, prefix: 'rrb_signature', isCustom: false };
       }
 
-      if (selectedFile) {
-        processImage(selectedFile);
-      }
+      if (loadedImage) processLoadedImage();
     }
 
     function applyCustomInputs() {
@@ -248,122 +238,116 @@
         isCustom: true
       };
 
-      if (selectedFile) {
-        processImage(selectedFile);
-      }
+      if (loadedImage) processLoadedImage();
     }
 
     function toggleDOPBox() {
-      const chk = document.getElementById('dop-checkbox');
-      chk.checked = !chk.checked;
-      handleDOPToggle({ target: chk });
-    }
-
-    function handleDOPToggle(e) {
-      e.stopPropagation();
+      const isChecked = document.getElementById('dop-checkbox').checked;
       const container = document.getElementById('dop-inputs-container');
-      if (e.target.checked) {
+      if (isChecked) {
         container.classList.remove('hidden');
       } else {
         container.classList.add('hidden');
       }
-      if (selectedFile) processImage(selectedFile);
+      if (loadedImage) processLoadedImage();
     }
 
-    function reprocessWithDOP() {
-      if (selectedFile) processImage(selectedFile);
+    function triggerReprocessDebounced() {
+      clearTimeout(debounceTimer);
+      debounceTimer = setTimeout(() => {
+        if (loadedImage) processLoadedImage();
+      }, 350); // Types smoothly without freezing
     }
 
     function handleFile(event) {
       const file = event.target.files[0];
-      if (file) {
-        selectedFile = file;
-        document.getElementById('original-size').innerText = (file.size / 1024).toFixed(1) + ' KB';
-        processImage(file);
-      }
-    }
-
-    function processImage(file) {
+      if (!file) return;
+      document.getElementById('original-size').innerText = (file.size / 1024).toFixed(1) + ' KB';
+      
       const reader = new FileReader();
       reader.onload = function(e) {
         const img = new Image();
         img.onload = function() {
-          const canvas = document.createElement('canvas');
-          let width = img.width;
-          let height = img.height;
-
-          // Aspect ratio scaling
-          if (width > currentConfig.maxWidth || height > currentConfig.maxHeight) {
-            const ratio = Math.min(currentConfig.maxWidth / width, currentConfig.maxHeight / height);
-            width = Math.round(width * ratio);
-            height = Math.round(height * ratio);
-          }
-
-          const isDOPActive = document.getElementById('dop-checkbox').checked;
-          const stripHeight = isDOPActive ? Math.round(height * 0.22) : 0;
-
-          canvas.width = width;
-          canvas.height = height + stripHeight;
-          const ctx = canvas.getContext('2d');
-          
-          // White Background
-          ctx.fillStyle = '#FFFFFF';
-          ctx.fillRect(0, 0, canvas.width, canvas.height);
-          ctx.drawImage(img, 0, 0, width, height);
-
-          // Add Name and Date on Photo Strip if active
-          if (isDOPActive) {
-            const name = document.getElementById('dop-name').value.trim() || 'CANDIDATE NAME';
-            const date = document.getElementById('dop-date').value.trim() || 'DOP: ' + new Date().toLocaleDateString('en-GB');
-
-            ctx.fillStyle = '#FFFFFF';
-            ctx.fillRect(0, height, width, stripHeight);
-            ctx.strokeStyle = '#E2E8F0';
-            ctx.lineWidth = 1;
-            ctx.strokeRect(0, height, width, stripHeight);
-
-            ctx.fillStyle = '#0F172A';
-            ctx.textAlign = 'center';
-            ctx.textBaseline = 'middle';
-            
-            const fontSize = Math.max(12, Math.round(stripHeight * 0.32));
-            ctx.font = `bold ${fontSize}px sans-serif`;
-            ctx.fillText(name.toUpperCase(), width / 2, height + (stripHeight * 0.35));
-
-            ctx.font = `600 ${Math.max(10, Math.round(fontSize * 0.85))}px sans-serif`;
-            ctx.fillText(date, width / 2, height + (stripHeight * 0.75));
-          }
-
-          // Smart compression loop
-          let minQuality = 0.05, maxQuality = 0.98, bestBlob = null, bestSize = 0;
-
-          function testCompression(quality, iteration) {
-            canvas.toBlob(blob => {
-              const sizeKB = blob.size / 1024;
-              bestBlob = blob;
-              bestSize = sizeKB;
-
-              if (iteration < 7) {
-                if (sizeKB > currentConfig.targetMaxKB) {
-                  maxQuality = quality;
-                  testCompression((minQuality + maxQuality) / 2, iteration + 1);
-                } else if (sizeKB < currentConfig.targetMinKB) {
-                  minQuality = quality;
-                  testCompression((minQuality + maxQuality) / 2, iteration + 1);
-                } else {
-                  finalize(blob, sizeKB, canvas.width, canvas.height);
-                }
-              } else {
-                finalize(bestBlob, bestSize, canvas.width, canvas.height);
-              }
-            }, 'image/jpeg', quality);
-          }
-
-          testCompression(0.8, 1);
+          loadedImage = img;
+          processLoadedImage();
         };
         img.src = e.target.result;
       };
       reader.readAsDataURL(file);
+    }
+
+    function processLoadedImage() {
+      if (!loadedImage) return;
+
+      const canvas = document.createElement('canvas');
+      let width = loadedImage.width;
+      let height = loadedImage.height;
+
+      if (width > currentConfig.maxWidth || height > currentConfig.maxHeight) {
+        const ratio = Math.min(currentConfig.maxWidth / width, currentConfig.maxHeight / height);
+        width = Math.round(width * ratio);
+        height = Math.round(height * ratio);
+      }
+
+      const isDOPActive = document.getElementById('dop-checkbox').checked;
+      const stripHeight = isDOPActive ? Math.round(height * 0.22) : 0;
+
+      canvas.width = width;
+      canvas.height = height + stripHeight;
+      const ctx = canvas.getContext('2d');
+      
+      ctx.fillStyle = '#FFFFFF';
+      ctx.fillRect(0, 0, canvas.width, canvas.height);
+      ctx.drawImage(loadedImage, 0, 0, width, height);
+
+      if (isDOPActive) {
+        const name = document.getElementById('dop-name').value.trim() || 'CANDIDATE NAME';
+        const date = document.getElementById('dop-date').value.trim() || 'DOP: ' + new Date().toLocaleDateString('en-GB');
+
+        ctx.fillStyle = '#FFFFFF';
+        ctx.fillRect(0, height, width, stripHeight);
+        ctx.strokeStyle = '#CBD5E1';
+        ctx.lineWidth = 1;
+        ctx.strokeRect(0, height, width, stripHeight);
+
+        ctx.fillStyle = '#0F172A';
+        ctx.textAlign = 'center';
+        ctx.textBaseline = 'middle';
+        
+        const fontSize = Math.max(12, Math.round(stripHeight * 0.32));
+        ctx.font = `bold ${fontSize}px sans-serif`;
+        ctx.fillText(name.toUpperCase(), width / 2, height + (stripHeight * 0.35));
+
+        ctx.font = `600 ${Math.max(10, Math.round(fontSize * 0.85))}px sans-serif`;
+        ctx.fillText(date, width / 2, height + (stripHeight * 0.75));
+      }
+
+      // Fast Binary Compression (5 iterations max for speed)
+      let minQ = 0.1, maxQ = 0.95, bestBlob = null, bestSize = 0;
+
+      function step(quality, iteration) {
+        canvas.toBlob(blob => {
+          const sizeKB = blob.size / 1024;
+          bestBlob = blob;
+          bestSize = sizeKB;
+
+          if (iteration < 5) {
+            if (sizeKB > currentConfig.targetMaxKB) {
+              maxQ = quality;
+              step((minQ + maxQ) / 2, iteration + 1);
+            } else if (sizeKB < currentConfig.targetMinKB) {
+              minQ = quality;
+              step((minQ + maxQ) / 2, iteration + 1);
+            } else {
+              finalize(blob, sizeKB, canvas.width, canvas.height);
+            }
+          } else {
+            finalize(bestBlob, bestSize, canvas.width, canvas.height);
+          }
+        }, 'image/jpeg', quality);
+      }
+
+      step(0.8, 1);
     }
 
     function finalize(blob, sizeKB, width, height) {
@@ -386,7 +370,7 @@
     }
   </script>
 
-  <!-- Adsterra Social Bar Code (Active) -->
+  <!-- Adsterra Social Bar Code -->
   <script data-cfasync="false" src="https://bauval.org/14/b2432908851345e6d312c122e337b0e8"></script>
 </body>
 </html>
